@@ -6,14 +6,27 @@
     android:orientation="vertical"
     tools:context="apkmarvel.filebrowser.MainActivity">
 
-  <Button
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="OpenFile"
-      android:onClick="OpenFile"/>
-  <Button
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="OpenFolder"
-      android:onClick="OpenFolder"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="OpenFile"
+        android:text="OpenFile" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getFileList"
+        android:text="getFileList" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getSpecificFileList"
+        android:text="getSpecificFileList" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getFolderList"
+        android:text="getFolderList" />
 </LinearLayout>
