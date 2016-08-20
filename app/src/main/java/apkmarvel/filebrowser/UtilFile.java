@@ -10,10 +10,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-/**
- * Created by jcf on 6/29/2016.
- */
-
 
 /*
 *  permission
@@ -21,6 +17,23 @@ import java.util.ArrayList;
 *  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 */
 public class UtilFile {
+
+//    down vote
+//    I had been having the exact same problem!
+//
+//    To get the internal SD card you can use
+//
+//    String extStore = System.getenv("EXTERNAL_STORAGE");
+//    File f_exts = new File(extStore);
+//    To get the external SD card you can use
+//
+//    String secStore = System.getenv("SECONDARY_STORAGE");
+//    File f_secs = new File(secStore);
+//    On running the code
+//
+//    extStore = "/storage/emulated/legacy"
+//    secStore = "/storage/extSdCarcd"
+//    works perfectly!
     public static String TAG = UtilFile.class.getSimpleName();
 
     public static String getFileNameFromUrl(String url) {
@@ -41,6 +54,12 @@ public class UtilFile {
     }
     public static File sdCardRootFile() {
         return  new File(Environment.getExternalStorageDirectory().getAbsolutePath());
+    }
+    public static String internalRoot() {
+        return Environment.getDataDirectory().getAbsolutePath()+ File.separator;
+    }
+    public static File internalRootFile() {
+        return  new File(Environment.getRootDirectory().getAbsolutePath());
     }
     public static File createFile(String dir,String fileName)throws IOException {
         File file = new File(dir + File.separator + fileName);

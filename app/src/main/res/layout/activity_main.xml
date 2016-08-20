@@ -11,6 +11,11 @@
         android:layout_height="wrap_content"
         android:onClick="OpenFile"
         android:text="OpenFile" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="SDRoot"
+        android:text="SDRoot" />
 
     <Button
         android:layout_width="wrap_content"

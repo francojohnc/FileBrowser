@@ -1,6 +1,7 @@
 package apkmarvel.filebrowser;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public void SDRoot(View v){
+        Log.e(TAG,UtilFile.internalRoot());
+    }
     public void OpenFile(View v){
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -32,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<File> fileList = UtilFile.getAllFileFromFolder(sdCardRoot);
         for(int i = 0;i<fileList.size();i++){
             Log.e(TAG, "file: "+fileList.get(i).getName());
+//            Uri returnUri = fileList.get(i));
+//            String mimeType = getContentResolver().getType(returnUri);
         }
 
     }
@@ -61,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "Intent: "+data.toString());
             Log.e(TAG, "getData Uri: "+data.getData().toString());
             Log.e(TAG, "getPath : "+data.getData().getPath());
+            Uri returnUri = data.getData();
+            String mimeType = getContentResolver().getType(returnUri);
+            Log.e(TAG, "mimeType : "+mimeType);
             String extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(getContentResolver().getType(data.getData()));
             if (extension == null) {
                 Log.e(TAG, "File has no extension or invalid extension");
